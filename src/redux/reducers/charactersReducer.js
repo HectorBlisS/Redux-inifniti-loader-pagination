@@ -5,6 +5,25 @@ import {
     GET_CHARACTERS_SUCCESS,
 } from '../actions/charactersActions'
 
+function totalPages(state = 0, action) {
+    switch (action.type) {
+        case GET_CHARACTERS_SUCCESS:
+            return action.payload.pages
+        default:
+            return state
+    }
+}
+
+function pages(state = {}, action) {
+    switch (action.type) {
+        case GET_CHARACTERS_SUCCESS:
+            state[`page${action.payload.currentPage}`] = action.payload.chars.map(c => c.id)
+            return { ...state }
+        default:
+            return state
+    }
+}
+
 function chars(state = {}, action) {
     switch (action.type) {
         case GET_CHARACTERS_SUCCESS:
@@ -14,6 +33,7 @@ function chars(state = {}, action) {
             return state
     }
 }
+
 function error(state = false, action) {
     switch (action.type) {
         case GET_CHARACTERS_SUCCESS:
@@ -84,5 +104,7 @@ export default combineReducers({
     prev,
     next,
     count,
-    currentPage
+    currentPage,
+    pages,
+    totalPages
 })
