@@ -3,6 +3,7 @@ import {
     GET_CHARACTERS_BEGIN,
     GET_CHARACTERS_ERROR,
     GET_CHARACTERS_SUCCESS,
+    CHANGE_CURRENT_PAGE
 } from '../actions/charactersActions'
 
 function totalPages(state = 0, action) {
@@ -89,6 +90,8 @@ function count(state = 0, action) {
 }
 function currentPage(state = 1, action) {
     switch (action.type) {
+        case CHANGE_CURRENT_PAGE:
+            return action.payload
         case GET_CHARACTERS_SUCCESS:
             return action.payload.currentPage
         default:

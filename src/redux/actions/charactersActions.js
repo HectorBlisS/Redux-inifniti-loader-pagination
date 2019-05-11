@@ -6,15 +6,15 @@ export let GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS"
 export let GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR"
 export let CHARACTERS_LIMIT_REACHED = "CHARACTERS_LIMIT_REACHED"
 export let GET_SPECIFIC_PAGE_SUCCESS = "GET_SPECIFIC_PAGE_SUCCESS"
+export let CHANGE_CURRENT_PAGE = "CHANGE_CURRENT_PAGE"
 
 // 2.- Action creator
-function getSpecificPageSuccess(payload) {
+function changeCurrentPage(payload) {
     return {
-        type: GET_SPECIFIC_PAGE_SUCCESS,
+        type: CHANGE_CURRENT_PAGE,
         payload
     }
 }
-
 
 function getCharactersBegin() {
     return {
@@ -43,7 +43,7 @@ function charactersLimitReached() {
 export const getSpecificPage = (pageNumber) => (dispatch, getState) => {
     let { next, pages } = getState().characters
     // 1.- si la pagina ya la tengo ??
-    if (pages[`page${pageNumber}`]) return
+    if (pages[`page${pageNumber}`]) return dispatch(changeCurrentPage(pageNumber))
     // 2.- si no la tengo ??
     let alreadyHere = Object.keys(getState().characters.chars).length
     next = next.split("=")[0] + "=" + pageNumber

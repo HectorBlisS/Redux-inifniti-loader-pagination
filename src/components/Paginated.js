@@ -19,6 +19,7 @@ class Paginated extends PureComponent {
                     {pageIds.map((id, i) => <li key={i} >{this.props.chars[id].name}</li>)}
                 </ul>
                 <span
+                    onClick={() => this.props.getSpecificPage(Number(this.props.currentPage) - 1)}
                     style={styles.link}
                 >{"<< Prev"} </span>
                 <span>{" | "}</span>
