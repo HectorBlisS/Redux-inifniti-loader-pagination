@@ -11,7 +11,7 @@ import Paginated from './components/Paginated';
 function App() {
   return (
     <div className="App">
-      <h1>Bienvenidos al Nolte Meetup</h1>
+      <h2>Que ño!!</h2>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Route path="/profile" component={Profile} />
