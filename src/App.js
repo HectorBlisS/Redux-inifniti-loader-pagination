@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <h1>Pizza Time! 🍕</h1>
+      <p>Ya es hora!!</p>
     </div>
   );
 }
