@@ -11,7 +11,7 @@ import Paginated from './components/Paginated';
 function App() {
   return (
     <div className="App">
-      <h1>We are Nolte!</h1>
+      <h1>We hate Pizza!</h1>
     </div>
   );
 }
